@@ -58,7 +58,7 @@ optional arguments:
 # docker使用方法
 ```
 #获取证书
- docker run --net host -i --rm --name seafline-ssl-chgapi congcong126/seafline-ssl-chgapi:v1.0 python3 /web/safeline-ssl-chgapi.py list-certs --base-url "https://xxx.com:9443" --api-token "qt8DjIyqxxxxxxxxxxxxxxxxxxxFD2kOzm-"
+docker run --net host -i --rm --name seafline-ssl-chgapi congcong126/seafline-ssl-chgapi:v1.0 python3 /web/safeline-ssl-chgapi.py list-certs --base-url "https://xxx.com:9443" --api-token "qt8DjIyqxxxxxxxxxxxxxxxxxxxFD2kOzm-"
 #更新证书
 docker run --net host -i --rm -v /etc/letsencrypt/:/data/ssl/ --name seafline-ssl-chgapi congcong126/seafline-ssl-chgapi:v1.0 python3 /web/safeline-ssl-chgapi.py update-cert --base-url "https://xxx.com:9443" --api-token "qt8DjIyqxxxxxxxxxxxxxxxxxxxFD2kOzm-" --cert-id 1 --cert-file /data/ssl/live/xxx.com/fullchain.pem --key-file /data/ssl/live/xxx.com/privkey.pem
 ```
