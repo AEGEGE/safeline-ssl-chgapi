@@ -65,18 +65,13 @@ def parse_arguments():
     """解析命令行参数"""
     parser = argparse.ArgumentParser(description='Safeline API 操作脚本', formatter_class=argparse.RawTextHelpFormatter)
 
-    # 基本信息
-    parser.add_argument('--base-url', default=DEFAULT_BASE_URL, help=f'API 基本 URL (默认: {DEFAULT_BASE_URL})')
-    parser.add_argument('--api-token', default=DEFAULT_API_TOKEN, help=f'API Token')
-    parser.add_argument('--cert-id', type=int, default=DEFAULT_CERT_ID, help=f'要更新的证书ID (默认: {DEFAULT_CERT_ID})')
-    parser.add_argument('--cert-file', default=DEFAULT_CERT_FILE_PATH, help=f'证书文件路径 (默认: {DEFAULT_CERT_FILE_PATH})')
-    parser.add_argument('--key-file', default=DEFAULT_CERT_KEY_PATH, help=f'证书密钥文件路径 (默认: {DEFAULT_CERT_KEY_PATH})')
-
     # 选择操作
     subparsers = parser.add_subparsers(dest='command', help='命令')
 
     # 查看证书列表命令
-    subparsers.add_parser('list-certs', help='查看所有证书')
+    list_parser = subparsers.add_parser('list-certs', help='查看所有证书')
+    list_parser.add_argument('--base-url', default=DEFAULT_BASE_URL, help=f'API 基本 URL (默认: {DEFAULT_BASE_URL})')
+    list_parser.add_argument('--api-token', default=DEFAULT_API_TOKEN, help=f'API Token')
 
     # 更新证书命令
     update_parser = subparsers.add_parser('update-cert', help='更新证书')
@@ -86,15 +81,15 @@ def parse_arguments():
     update_parser.add_argument('--cert-file', default=DEFAULT_CERT_FILE_PATH, help=f'证书文件路径 (默认: {DEFAULT_CERT_FILE_PATH})')
     update_parser.add_argument('--key-file', default=DEFAULT_CERT_KEY_PATH, help=f'证书密钥文件路径 (默认: {DEFAULT_CERT_KEY_PATH})')
 
-    return parser, update_parser
+    return parser
 
 
 def main():
     # 解析命令行参数
-    parser, update_parser = parse_arguments()
+    parser = parse_arguments()
     args = parser.parse_args()
 
-    # 如果没有命令，则显示 update-cert 的帮助信息
+    # 如果没有命令，则显示帮助信息
     if not args.command:
         parser.print_help(sys.stderr)
         sys.exit(1)
