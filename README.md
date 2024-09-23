@@ -8,8 +8,8 @@
 ### chmod 755 safeline-ssl-chgapi.py
 ```
 # 使用帮助
-/ # python3 safeline-ssl-chgapi.py
-usage: safeline-ssl-chgapi.py [-h] [--base-url BASE_URL] [--api-token API_TOKEN] [--cert-id CERT_ID] [--cert-file CERT_FILE] [--key-file KEY_FILE] {list-certs,update-cert} ...
+/ # python3 safeline-ssl-chgapi.py -h
+usage: safeline-ssl-chgapi.py [-h] {list-certs,update-cert} ...
 
 Safeline API 操作脚本
 
@@ -18,6 +18,21 @@ positional arguments:
                         命令
     list-certs          查看所有证书
     update-cert         更新证书
+
+optional arguments:
+  -h, --help            show this help message and exit
+
+/ # python3 safeline-ssl-chgapi.py list-certs -h
+usage: safeline-ssl-chgapi.py list-certs [-h] [--base-url BASE_URL] [--api-token API_TOKEN]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --base-url BASE_URL   API 基本 URL (默认: https://xxx.com:9443)
+  --api-token API_TOKEN
+                        API Token
+
+/ # python3 safeline-ssl-chgapi.py update-cert -h
+usage: safeline-ssl-chgapi.py update-cert [-h] [--base-url BASE_URL] [--api-token API_TOKEN] [--cert-id CERT_ID] [--cert-file CERT_FILE] [--key-file KEY_FILE]
 
 optional arguments:
   -h, --help            show this help message and exit
