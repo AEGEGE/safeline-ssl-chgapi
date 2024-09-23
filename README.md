@@ -1,7 +1,9 @@
 # safeline-ssl-chgapi
 通过safeline的openapi来更新证书信息，并结合自己基于Let's Encrypt自动获取、续订ssl通配符域名证书的脚本，达到在不对长亭WAF配置做过多改动的情况下，定期自动轮换证书时间，实现一套可用于简单生产级别的WAF系统。
 
-# 如果使用
+# 使用方法
+### 版本需要 >= 6.6.0
+### 使用默认的 admin 用户登录，系统设置，API Token，官方文档:https://docs.waf-ce.chaitin.cn/zh/%E6%9B%B4%E5%A4%9A%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/OPENAPI
 ### 下载safeline-ssl-chgapi.py
 ### chmod 755 safeline-ssl-chgapi.py
 ```
