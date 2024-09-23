@@ -30,7 +30,7 @@ optional arguments:
   --key-file KEY_FILE   证书密钥文件路径 (默认: /data/ssl/live/xxx.com/privkey.pem)
 
 #获取所有证书信息
-/ # python3 safeline-ssl-chgapi.py list-certs
+/ # python3 safeline-ssl-chgapi.py list-certs --base-url https://xxx.com:9443 --api-token qt8DjIyqxxxxxxxxxxxxxxxxxxxFD2kOzm-
 证书列表：
 证书ID: 2, 证书信息: {'id': 2, 'domains': ['*.xxx.com', 'xxx.com'], 'issuer': 'R11', 'self_signature': False, 'trusted': False, 'revoked': False, 'expired': False, 'type': 2, 'acme_message': '', 'valid_before': '2024-12-11T00:11:14+08:00', 'related_sites': ['雷池控制台', 'xxx.com', 'hubproxy.xxx.com']}
 证书ID: 1, 证书信息: {'id': 1, 'domains': ['*.yyy.com', 'yyy.com'], 'issuer': 'R10', 'self_signature': False, 'trusted': False, 'revoked': False, 'expired': False, 'type': 2, 'acme_message': '', 'valid_before': '2024-12-04T23:07:20+08:00', 'related_sites': ['blog.yyy.com', 'yyy.com']}
